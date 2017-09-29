@@ -18,7 +18,7 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  reg_exp = /#{e1}.*{e2}/m
+  reg_exp = /#{e1}.*{e2}/m        #source: OH help/took notes while someone else was being helped on this
   reg_exp.match(page.body)
 end
 
@@ -41,6 +41,6 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  rows = page.all('table#movies tbody tr').count    #used stack overflow for learning how to count rows in a table
+  rows = page.all('table#movies tbody tr').count    #source: used stack overflow for learning how to count rows in a table
   expect(rows).to eq Movie.count
 end
